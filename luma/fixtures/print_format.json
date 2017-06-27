@@ -358,5 +358,25 @@
   "print_format_type": "Server", 
   "show_section_headings": 0, 
   "standard": "No"
+ }, 
+ {
+  "align_labels_left": 0, 
+  "css": null, 
+  "custom_format": 1, 
+  "disabled": 0, 
+  "doc_type": "Delivery Note", 
+  "docstatus": 0, 
+  "doctype": "Print Format", 
+  "font": "Default", 
+  "format_data": null, 
+  "html": null, 
+  "line_breaks": 0, 
+  "modified": "2017-06-27 15:24:22.216525", 
+  "module": "Stock", 
+  "name": "Custom Delivery  Note", 
+  "print_format_builder": 0, 
+  "print_format_type": "Server", 
+  "show_section_headings": 0, 
+  "standard": "No"
  }
 ]
