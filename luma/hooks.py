@@ -83,6 +83,9 @@ doc_events = {
 	},
 	"Purchase Order": {
 		"before_save":"luma.custom_method.custom_method.set_item_values"
+	},
+	"Delivery Note": {
+		"before_save":"luma.custom_method.custom_method.set_item_values"
 	}
 }
 

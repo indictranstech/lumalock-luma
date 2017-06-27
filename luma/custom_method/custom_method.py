@@ -413,6 +413,7 @@ def get_outerbox_item(item_code):
 
 @frappe.whitelist()
 def set_item_values(doc, method):
+	print "into the hooks file_____________________________",doc.doctype,method
 	material_request = ""
 	for row in doc.items:
 		if row.item_code:
@@ -421,16 +422,22 @@ def set_item_values(doc, method):
 			row.total_volume = round(flt(row.length_new * row.width * row.height * row.outer_box_qty)/1000000000, 3)
 			row.total_net_weight = round(flt(row.item_net_weight1 * row.qty),2)
 			row.total_gross_weight1 = round(flt(row.qty*row.item_net_weight1 + (row.outer_box_qty*row.outer_box_weight)+(row.inner_box_qty*row.inner_box_weight)),2)
-		material_request = row.material_request  
+			if doc.doctype == 'Delivery Note':
+				print "for ___________ADRchecjk###############"
+				row.total_adr_weight = round(flt(row.qty*row.adr_weight),2)
+				print "___________________",row.total_adr_weight
+		material_request = row.material_request  or "" 
 	
 	#below code only for AWS server
 	if row.material_request:
 		data = get_customer_detail(material_request)
-		doc.sales_order_no = data['name'] if data['name'] else ""
-		doc.customer_name_so = data['customer'] if data['customer'] else ""
-		doc.customer_address = data['shipping_address'] if data['shipping_address'] else ""
-
+		doc.sales_order_no = data.name or ""
+		doc.customer_name_so = data.customer or ""
+		doc.customer_address = data.shipping_address or ""
+		doc.customers_purchase_order = data.po_no or ""
+		doc.proforma_invoice_no = frappe.db.get_value("Sales Order Item",{'parent':data.name},'prevdoc_docname') or ""
 
 def get_customer_detail(material_request):
 	so_no = frappe.db.get_value("Material Request Item",{'parent':material_request},['sales_order'])
-	return frappe.db.get_value("Sales Order",so_no,['customer','shipping_address','name'],as_dict=True)
+	so_doc = frappe.get_doc("Sales Order",so_no)
+	return so_doc
