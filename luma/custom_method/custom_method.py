@@ -413,7 +413,6 @@ def get_outerbox_item(item_code):
 
 @frappe.whitelist()
 def set_item_values(doc, method):
-	print "into the hooks file_____________________________",doc.doctype,method
 	material_request = ""
 	for row in doc.items:
 		if row.item_code:
@@ -423,9 +422,7 @@ def set_item_values(doc, method):
 			row.total_net_weight = round(flt(row.item_net_weight1 * row.qty),2)
 			row.total_gross_weight1 = round(flt(row.qty*row.item_net_weight1 + (row.outer_box_qty*row.outer_box_weight)+(row.inner_box_qty*row.inner_box_weight)),2)
 			if doc.doctype == 'Delivery Note':
-				print "for ___________ADRchecjk###############"
 				row.total_adr_weight = round(flt(row.qty*row.adr_weight),2)
-				print "___________________",row.total_adr_weight
 		material_request = row.material_request  or "" 
 	
 	#below code only for AWS server
