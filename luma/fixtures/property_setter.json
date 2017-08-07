@@ -2504,23 +2504,6 @@
   "_liked_by": null, 
   "_user_tags": null, 
   "default_value": null, 
-  "doc_type": "Delivery Note", 
-  "docstatus": 0, 
-  "doctype": "Property Setter", 
-  "doctype_or_field": "DocType", 
-  "field_name": null, 
-  "modified": "2017-06-27 16:12:58.439808", 
-  "name": "Delivery Note-read_only_onload", 
-  "property": "read_only_onload", 
-  "property_type": "Check", 
-  "value": null
- }, 
- {
-  "_assign": null, 
-  "_comments": null, 
-  "_liked_by": null, 
-  "_user_tags": null, 
-  "default_value": null, 
   "doc_type": "Delivery Note Item", 
   "docstatus": 0, 
   "doctype": "Property Setter", 
@@ -2866,10 +2849,27 @@
   "doctype": "Property Setter", 
   "doctype_or_field": "DocType", 
   "field_name": null, 
-  "modified": "2017-06-27 16:13:00.903442", 
+  "modified": "2017-06-28 11:28:31.497814", 
   "name": "Delivery Note-default_print_format", 
   "property": "default_print_format", 
   "property_type": "Data", 
-  "value": "EFT DELIVERY NOTE"
+  "value": ""
+ }, 
+ {
+  "_assign": null, 
+  "_comments": null, 
+  "_liked_by": null, 
+  "_user_tags": null, 
+  "default_value": null, 
+  "doc_type": "Delivery Note", 
+  "docstatus": 0, 
+  "doctype": "Property Setter", 
+  "doctype_or_field": "DocType", 
+  "field_name": null, 
+  "modified": "2017-08-07 19:12:47.443109", 
+  "name": "Delivery Note-read_only_onload", 
+  "property": "read_only_onload", 
+  "property_type": "Check", 
+  "value": null
  }
 ]
